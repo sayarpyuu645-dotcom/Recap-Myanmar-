@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Recap Myanmar AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #080914;
+      color: white;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 500px;
+      margin: auto;
+      padding: 55px 0 30px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 58px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      color: #a9a9b8;
+      font-size: 15px;
+    }
+
+    .card {
+      margin-top: 35px;
+      padding: 25px;
+      border-radius: 22px;
+      background: #141625;
+      border: 1px solid #272a40;
+    }
+
+    .upload {
+      display: block;
+      padding: 20px;
+      border: 2px dashed #555a7a;
+      border-radius: 16px;
+      cursor: pointer;
+      color: #c7c9d8;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .file-name {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #8f93aa;
+      word-break: break-word;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #7057ff;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 15px;
+      background: #0e1020;
+      text-align: left;
+      line-height: 1.8;
+      color: #d8d9e4;
+    }
+
+    .footer {
+      margin-top: 30px;
+      color: #666a7e;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">🎬</div>
+
+    <h1>Recap Myanmar AI</h1>
+
+    <div class="subtitle">
+      မြန်မာ Movie Recap AI
+    </div>
+
+    <div class="card">
+
+      <label class="upload" for="video">
+        📁 Video ရွေးရန်
+      </label>
+
+      <input
+        type="file"
+        id="video"
+        accept="video/*"
+        onchange="showFile()"
+      >
+
+      <div class="file-name" id="fileName">
+        Video မရွေးရသေးပါ
+      </div>
+
+      <button onclick="startRecap()">
+        🤖 AI Recap စတင်မယ်
+      </button>
+
+      <div class="result" id="result"></div>
+
+    </div>
+
+    <div class="footer">
+      © 2026 Recap Myanmar AI
+    </div>
+
+  </div>
+
+  <script>
+
+    function showFile() {
+
+      const input = document.getElementById("video");
+      const fileName = document.getElementById("fileName");
+
+      if (input.files.length > 0) {
+        fileName.innerText =
+          "ရွေးထားသောဖိုင်: " + input.files[0].name;
+      } else {
+        fileName.innerText =
+          "Video မရွေးရသေးပါ";
+      }
+    }
+
+    function startRecap() {
+
+      const input = document.getElementById("video");
+      const result = document.getElementById("result");
+
+      result.style.display = "block";
+
+      if (input.files.length === 0) {
+
+        result.innerHTML =
+          "⚠️ အရင်ဆုံး Movie Video တစ်ခုရွေးပေးပါ။";
+
+        return;
+      }
+
+      result.innerHTML =
+        "⏳ Recap Myanmar AI က Video ကို စစ်ဆေးနေပါတယ်...<br><br>" +
+        "🤖 AI Recap Engine ကို နောက်တစ်ဆင့်မှာ ချိတ်ဆက်ပေးမယ်။";
+    }
+
+  </script>
+
+</body>
+</html>
